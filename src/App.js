@@ -18,7 +18,9 @@ export default function App() {
   useEffect(() => {
     api.get('repositories').then(response => {
       setRepositories(response.data);
-    });
+    }).catch((error) => {
+      console.log(error)
+    })
   }, []);
 
   async function handleLikeRepository(id) {
